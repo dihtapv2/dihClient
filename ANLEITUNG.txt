@@ -1,0 +1,12 @@
+So bekommst du die fertige BlockHub-Portable.exe (ohne etwas zu installieren):
+
+1. Auf github.com einloggen und ein neues Repository erstellen (z.B. "blockhub").
+2. Den INHALT dieses Ordners hochladen (Add file -> Upload files).
+   WICHTIG: Der versteckte Ordner ".github" muss mit hochgeladen werden.
+3. Im Repository oben auf "Actions" klicken -> "Build BlockHub" -> "Run workflow".
+4. Nach ca. 3-5 Minuten den fertigen Lauf öffnen und unten unter "Artifacts"
+   "BlockHub-windows-latest" herunterladen.
+5. ZIP entpacken -> BlockHub-Portable.exe doppelklicken. Fertig.
+
+Java und Minecraft lädt der Launcher beim ersten Start selbst herunter.
+Windows meldet evtl. "Unbekannter Herausgeber" -> "Weitere Informationen" -> "Trotzdem ausführen".
