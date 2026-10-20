@@ -1,0 +1,22 @@
+name: Build BlockHub
+on: { workflow_dispatch: {}, push: { tags: ['v*'] } }
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix: { os: [windows-latest, macos-latest, ubuntu-latest] }
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm install
+      - run: npx electron-builder --publish never
+      - uses: actions/upload-artifact@v4
+        with:
+          name: BlockHub-${{ matrix.os }}
+          path: |
+            dist/BlockHub-Portable.exe
+            dist/BlockHub-mac.dmg
+            dist/BlockHub-linux.AppImage
+          if-no-files-found: error
